@@ -1,0 +1,55 @@
+=================================================================
+==807==ERROR: AddressSanitizer: global-buffer-overflow on address 0x559c4367d038 at pc 0x559c435e69e8 bp 0x7ffdcedae780 sp 0x7ffdcedae778
+READ of size 8 at 0x559c4367d038 thread T0
+CitrusTriage#0 pc=0x559c435e69e7 [in glyph_out] at /app/abcm2ps-8.14.17/glyph.c:192
+CitrusTriage#1 pc=0x559c4362171f [in str_ft_out] at /app/abcm2ps-8.14.17/subs.c:872
+CitrusTriage#2 pc=0x559c43622ef3 [in str_out] at /app/abcm2ps-8.14.17/subs.c:967
+CitrusTriage#3 pc=0x559c436231bf [in put_str] at /app/abcm2ps-8.14.17/subs.c:985
+CitrusTriage#4 pc=0x559c43623340 [in put_wline] at /app/abcm2ps-8.14.17/subs.c:1273
+CitrusTriage#5 pc=0x559c436247da [in put_words] at /app/abcm2ps-8.14.17/subs.c:1344
+CitrusTriage#6 pc=0x559c4360dddb [in gen_ly] at /app/abcm2ps-8.14.17/parse.c:1067
+CitrusTriage#7 pc=0x559c4361bc96 [in do_tune] at /app/abcm2ps-8.14.17/parse.c:3652
+CitrusTriage#8 pc=0x559c435a2667 [in abc_eof] at /app/abcm2ps-8.14.17/abcparse.c:202
+CitrusTriage#9 pc=0x559c435e6683 [in frontend] at /app/abcm2ps-8.14.17/front.c:905
+CitrusTriage#10 pc=0x559c4359e2c5 [in treat_file] at /app/abcm2ps-8.14.17/abcm2ps.c:240
+CitrusTriage#11 pc=0x559c4359e7b4 [in treat_abc_file] at /app/abcm2ps-8.14.17/abcm2ps.c:283
+CitrusTriage#12 pc=0x559c435a0048 [in main] at /app/abcm2ps-8.14.17/abcm2ps.c:1041
+CitrusTriage#13 pc=0x7f24303e0ca7 [] at (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: fce446c9d4ad48e2b0c90cce1a11722897805281)
+CitrusTriage#14 pc=0x7f24303e0d64 [in __libc_start_main] at (/lib/x86_64-linux-gnu/libc.so.6+0x29d64) (BuildId: fce446c9d4ad48e2b0c90cce1a11722897805281)
+CitrusTriage#15 pc=0x559c4359d620 [in _start] at (/app/abcm2ps-8.14.17/abcm2ps_asan+0x33620) (BuildId: e4ba731410148452ccd1118dae5469086af3428b)
+
+0x559c4367d038 is located 8 bytes before global variable 'c4' defined in 'glyph.c:53:14' (0x559c4367d040) of size 512
+0x559c4367d038 is located 24 bytes after global variable 'c5' defined in 'glyph.c:71:14' (0x559c4367ce20) of size 512
+SUMMARY: AddressSanitizer: global-buffer-overflow /app/abcm2ps-8.14.17/glyph.c:192 in glyph_out
+Shadow bytes around the buggy address:
+  0x559c4367cd80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x559c4367ce00: f9 f9 f9 f9 00 00 00 00 00 00 00 00 00 00 00 00
+  0x559c4367ce80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x559c4367cf00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x559c4367cf80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x559c4367d000: 00 00 00 00 f9 f9 f9[f9]00 00 00 00 00 00 00 00
+  0x559c4367d080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x559c4367d100: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x559c4367d180: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x559c4367d200: 00 00 00 00 00 00 00 00 f9 f9 f9 f9 00 00 00 00
+  0x559c4367d280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==807==ABORTING

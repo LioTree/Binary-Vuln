@@ -1,0 +1,60 @@
+%abc-2.1
+% aese characters
+
+% this fbcm2ps
+
+X: 1
+T: Green Island Serenade
+T: 绿岛小夜曲
+T: 綠島小夜曲
+T: Lǜ Dǎo XiȎoyèqǔ
+T: Зелёный Остров
+T: جزيرة اخضرة
+C: Chen Chang-shou
+D: Vienna Teng "Warm Strangers"
+M: 4/4
+L: 1/8
+K: D
+A,2 \
+| "D"A3 B "(F#m)"A2 F2 | "A7"E2 {FE}DE "Bm"F3 E \
+| "G"DD2 B, "D"A,3 B, | "D"A,4 "(A7)�������������3 A, B,2 D2 | "A7"E2 {FE}DE "D"F3 A \
+| "Em"EE2 F "A7"A3 B | "D"A4 "(A7)"z4 |
+| "G"BB2 A "D"F2 FE | "Bm"DE F[AD] "F#m"F4 \
+| "Em"EE2 D "G"B,A, B,D | "A7"E4 z4 \
+| "D"FF2 E "Bm"FA F2 | "Em"EF ED "G"B,4 \
+| "D"A,A FE "A7"AB FE | "D"{E}D4 z4 |]
+[|"G"B>B BA "D"F F3 | "Em"EE2 D "G"B,A, B,D | "A7"E4 z4 \
+| "D"A>B AE "F#m"FF2 F | "Em"EE2 D "G"B,2 D2 | "D"A4 "A7"z3A |
+| "D"A2 {BA}FA "G"B3 d | "D"AB AF "Em"E4 \
+| "Bm"F2 ED "G"B,3 D | "A7"E2 {FE}DE "D"F3A \
+| "G"B3 F "A7"E3 F/E/ | "D"D4 z2 |]
+%
+W: 这绿岛像一隻船在月夜里摇呀摇
+W: 姑娘哟妳也在我的心海裡飘呀飘
+W: 让我的歌声随那微风吹開了妳的窗簾
+W: 让我的衷情随那流水不断的向妳倾诉
+W:
+W: 椰子树的长影掩不住我的情意
+W: 明媚的月光更照亮了我的心
+W: 这绿岛的夜已经这样沉静
+W: 姑娘哟妳为什么还是默默无语
+W:
+W: zhè lǜ dǎo xiàng yī zhī chuàn, zài yué yè lǐ yáo ya yáo.
+W: gū niang yo, nǐ ye zài wǒde xīn hǎi lǐ piao ya piao.
+W: ràng wǒde ge sheng sui na wei feng, chui kai le nǐ de chuang lian.
+W: ràng wǒde zhong qing sui na liu shui, bu duan de xiang nǐ qing su.
+W:
+W: ye zi shu de chang ying yan bu zhu wǒde qing yi;
+W: mìng mèi de yuè guang geng zhao liang le wǒde xīn.
+W: zhe lǜ dao de ye yi jing zhe yang de chen jing
+W: gū niang ya, nǐ wei shen ma hai shì muò muò wú yǚ?
+W:
+W: This Green Island is like a boat, floating in the moonlight,
+W: My darling, you too are floating in the sea of my heart,
+W: Let the sound of my song follow the breeze, blowing open the curtain of your window,
+W: Let my love follow the flowing water, endlessly pouring out its feelings for you.
+W:
+W: The long shadows of the palm trees cannot conceal my love,
+W: The bright beauty of the moonlight casts its brilliance into my heart.
+W: This Green Island night is so calm and serene,
+W: My darling, why are you silent, saying nothing?

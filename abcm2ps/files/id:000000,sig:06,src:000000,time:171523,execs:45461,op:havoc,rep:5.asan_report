@@ -1,0 +1,54 @@
+=================================================================
+==801==ERROR: AddressSanitizer: global-buffer-overflow on address 0x55f27d862690 at pc 0x55f27d7cb9e8 bp 0x7ffc801404d0 sp 0x7ffc801404c8
+READ of size 8 at 0x55f27d862690 thread T0
+CitrusTriage#0 pc=0x55f27d7cb9e7 [in glyph_out] at /app/abcm2ps-8.14.17/glyph.c:192
+CitrusTriage#1 pc=0x55f27d80671f [in str_ft_out] at /app/abcm2ps-8.14.17/subs.c:872
+CitrusTriage#2 pc=0x55f27d8080ab [in str_out] at /app/abcm2ps-8.14.17/subs.c:967
+CitrusTriage#3 pc=0x55f27d8081bf [in put_str] at /app/abcm2ps-8.14.17/subs.c:985
+CitrusTriage#4 pc=0x55f27d80c6c0 [in write_title] at /app/abcm2ps-8.14.17/subs.c:1493
+CitrusTriage#5 pc=0x55f27d80c97b [in write_heading] at /app/abcm2ps-8.14.17/subs.c:1729
+CitrusTriage#6 pc=0x55f27d7fbb21 [in get_info] at /app/abcm2ps-8.14.17/parse.c:2925
+CitrusTriage#7 pc=0x55f27d800f41 [in do_tune] at /app/abcm2ps-8.14.17/parse.c:3514
+CitrusTriage#8 pc=0x55f27d787667 [in abc_eof] at /app/abcm2ps-8.14.17/abcparse.c:202
+CitrusTriage#9 pc=0x55f27d7cb683 [in frontend] at /app/abcm2ps-8.14.17/front.c:905
+CitrusTriage#10 pc=0x55f27d7832c5 [in treat_file] at /app/abcm2ps-8.14.17/abcm2ps.c:240
+CitrusTriage#11 pc=0x55f27d7837b4 [in treat_abc_file] at /app/abcm2ps-8.14.17/abcm2ps.c:283
+CitrusTriage#12 pc=0x55f27d785048 [in main] at /app/abcm2ps-8.14.17/abcm2ps.c:1041
+CitrusTriage#13 pc=0x7febb3f47ca7 [] at (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: fce446c9d4ad48e2b0c90cce1a11722897805281)
+CitrusTriage#14 pc=0x7febb3f47d64 [in __libc_start_main] at (/lib/x86_64-linux-gnu/libc.so.6+0x29d64) (BuildId: fce446c9d4ad48e2b0c90cce1a11722897805281)
+CitrusTriage#15 pc=0x55f27d782620 [in _start] at (/app/abcm2ps-8.14.17/abcm2ps_asan+0x33620) (BuildId: e4ba731410148452ccd1118dae5469086af3428b)
+
+0x55f27d862690 is located 16 bytes after global variable 'c2' defined in 'glyph.c:21:14' (0x55f27d862480) of size 512
+SUMMARY: AddressSanitizer: global-buffer-overflow /app/abcm2ps-8.14.17/glyph.c:192 in glyph_out
+Shadow bytes around the buggy address:
+  0x55f27d862400: 00 00 00 00 00 00 00 00 00 00 00 00 f9 f9 f9 f9
+  0x55f27d862480: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x55f27d862500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x55f27d862580: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x55f27d862600: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x55f27d862680: f9 f9[f9]f9 00 00 00 00 00 00 00 00 00 00 00 00
+  0x55f27d862700: 00 00 00 00 00 00 00 00 00 00 00 00 f9 f9 f9 f9
+  0x55f27d862780: f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9
+  0x55f27d862800: f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9
+  0x55f27d862880: f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9
+  0x55f27d862900: f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==801==ABORTING

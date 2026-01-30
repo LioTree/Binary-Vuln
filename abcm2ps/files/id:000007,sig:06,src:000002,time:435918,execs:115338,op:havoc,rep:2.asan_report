@@ -1,0 +1,62 @@
+/app/output-3/default/crashes/id:000007,sig:06,src:000002,time:435918,execs:115338,op:havoc,rep:2:20:86: error: No end of guitar chord
+  20 ..."E2 {FE}DE "D"F3 A \
+                            ^
+/app/output-3/default/crashes/id:000007,sig:06,src:000002,time:435918,execs:115338,op:havoc,rep:2:21:35: warning: Line overfull (648pt of 641pt)
+=================================================================
+==815==ERROR: AddressSanitizer: global-buffer-overflow on address 0x55e93e86c478 at pc 0x55e93e7d59e8 bp 0x7ffdc57240f0 sp 0x7ffdc57240e8
+READ of size 8 at 0x55e93e86c478 thread T0
+CitrusTriage#0 pc=0x55e93e7d59e7 [in glyph_out] at /app/abcm2ps-8.14.17/glyph.c:192
+CitrusTriage#1 pc=0x55e93e81071f [in str_ft_out] at /app/abcm2ps-8.14.17/subs.c:872
+CitrusTriage#2 pc=0x55e93e811ef3 [in str_out] at /app/abcm2ps-8.14.17/subs.c:967
+CitrusTriage#3 pc=0x55e93e7aa10f [in draw_gchord] at /app/abcm2ps-8.14.17/deco.c:2153
+CitrusTriage#4 pc=0x55e93e7aa10f [in draw_deco_staff] at /app/abcm2ps-8.14.17/deco.c:1948
+CitrusTriage#5 pc=0x55e93e7c407d [in draw_sym_near] at /app/abcm2ps-8.14.17/draw.c:4246
+CitrusTriage#6 pc=0x55e93e7eff05 [in delayed_output] at /app/abcm2ps-8.14.17/music.c:5035
+CitrusTriage#7 pc=0x55e93e7eff05 [in output_music] at /app/abcm2ps-8.14.17/music.c:5090
+CitrusTriage#8 pc=0x55e93e7fcade [in generate] at /app/abcm2ps-8.14.17/parse.c:1044
+CitrusTriage#9 pc=0x55e93e7fcdb3 [in gen_ly] at /app/abcm2ps-8.14.17/parse.c:1065
+CitrusTriage#10 pc=0x55e93e80ac96 [in do_tune] at /app/abcm2ps-8.14.17/parse.c:3652
+CitrusTriage#11 pc=0x55e93e791667 [in abc_eof] at /app/abcm2ps-8.14.17/abcparse.c:202
+CitrusTriage#12 pc=0x55e93e7d5683 [in frontend] at /app/abcm2ps-8.14.17/front.c:905
+CitrusTriage#13 pc=0x55e93e78d2c5 [in treat_file] at /app/abcm2ps-8.14.17/abcm2ps.c:240
+CitrusTriage#14 pc=0x55e93e78d7b4 [in treat_abc_file] at /app/abcm2ps-8.14.17/abcm2ps.c:283
+CitrusTriage#15 pc=0x55e93e78f048 [in main] at /app/abcm2ps-8.14.17/abcm2ps.c:1041
+CitrusTriage#16 pc=0x7f2e57e58ca7 [] at (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: fce446c9d4ad48e2b0c90cce1a11722897805281)
+CitrusTriage#17 pc=0x7f2e57e58d64 [in __libc_start_main] at (/lib/x86_64-linux-gnu/libc.so.6+0x29d64) (BuildId: fce446c9d4ad48e2b0c90cce1a11722897805281)
+CitrusTriage#18 pc=0x55e93e78c620 [in _start] at (/app/abcm2ps-8.14.17/abcm2ps_asan+0x33620) (BuildId: e4ba731410148452ccd1118dae5469086af3428b)
+
+0x55e93e86c478 is located 8 bytes before global variable 'c2' defined in 'glyph.c:21:14' (0x55e93e86c480) of size 512
+0x55e93e86c478 is located 24 bytes after global variable 'c3' defined in 'glyph.c:35:14' (0x55e93e86c260) of size 512
+SUMMARY: AddressSanitizer: global-buffer-overflow /app/abcm2ps-8.14.17/glyph.c:192 in glyph_out
+Shadow bytes around the buggy address:
+  0x55e93e86c180: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x55e93e86c200: 00 00 00 00 00 00 00 00 f9 f9 f9 f9 00 00 00 00
+  0x55e93e86c280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x55e93e86c300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x55e93e86c380: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x55e93e86c400: 00 00 00 00 00 00 00 00 00 00 00 00 f9 f9 f9[f9]
+  0x55e93e86c480: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x55e93e86c500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x55e93e86c580: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x55e93e86c600: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x55e93e86c680: f9 f9 f9 f9 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==815==ABORTING

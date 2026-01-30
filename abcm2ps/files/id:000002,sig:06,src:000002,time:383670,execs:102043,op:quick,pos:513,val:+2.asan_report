@@ -1,0 +1,56 @@
+/app/output-3/default/crashes/id:000002,sig:06,src:000002,time:383670,execs:102043,op:quick,pos:513,val:+2:24:24: error: No note in voice overlay
+=================================================================
+==805==ERROR: AddressSanitizer: global-buffer-overflow on address 0x55566fac597c at pc 0x55566fa4fc99 bp 0x7fff7be4c450 sp 0x7fff7be4c448
+READ of size 1 at 0x55566fac597c thread T0
+CitrusTriage#0 pc=0x55566fa4fc98 [in draw_rest] at /app/abcm2ps-8.14.17/draw.c:1379
+CitrusTriage#1 pc=0x55566fa4fc98 [in draw_symbols] at /app/abcm2ps-8.14.17/draw.c:4756
+CitrusTriage#2 pc=0x55566fa4fc98 [in draw_all_symb] at /app/abcm2ps-8.14.17/draw.c:4867
+CitrusTriage#3 pc=0x55566fa76faf [in output_music] at /app/abcm2ps-8.14.17/music.c:5091
+CitrusTriage#4 pc=0x55566fa83ade [in generate] at /app/abcm2ps-8.14.17/parse.c:1044
+CitrusTriage#5 pc=0x55566fa83db3 [in gen_ly] at /app/abcm2ps-8.14.17/parse.c:1065
+CitrusTriage#6 pc=0x55566fa91c96 [in do_tune] at /app/abcm2ps-8.14.17/parse.c:3652
+CitrusTriage#7 pc=0x55566fa18667 [in abc_eof] at /app/abcm2ps-8.14.17/abcparse.c:202
+CitrusTriage#8 pc=0x55566fa5c683 [in frontend] at /app/abcm2ps-8.14.17/front.c:905
+CitrusTriage#9 pc=0x55566fa142c5 [in treat_file] at /app/abcm2ps-8.14.17/abcm2ps.c:240
+CitrusTriage#10 pc=0x55566fa147b4 [in treat_abc_file] at /app/abcm2ps-8.14.17/abcm2ps.c:283
+CitrusTriage#11 pc=0x55566fa16048 [in main] at /app/abcm2ps-8.14.17/abcm2ps.c:1041
+CitrusTriage#12 pc=0x7f5dcb92eca7 [] at (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: fce446c9d4ad48e2b0c90cce1a11722897805281)
+CitrusTriage#13 pc=0x7f5dcb92ed64 [in __libc_start_main] at (/lib/x86_64-linux-gnu/libc.so.6+0x29d64) (BuildId: fce446c9d4ad48e2b0c90cce1a11722897805281)
+CitrusTriage#14 pc=0x55566fa13620 [in _start] at (/app/abcm2ps-8.14.17/abcm2ps_asan+0x33620) (BuildId: e4ba731410148452ccd1118dae5469086af3428b)
+
+0x55566fac597c is located 4 bytes before global variable '*.LC0' defined in 'parse.c' (0x55566fac5980) of size 6
+  '*.LC0' is ascii string '|||||'
+0x55566fac597c is located 40 bytes after global variable 'rest_sp' defined in 'music.c:41:13' (0x55566fac5940) of size 20
+SUMMARY: AddressSanitizer: global-buffer-overflow /app/abcm2ps-8.14.17/draw.c:1379 in draw_rest
+Shadow bytes around the buggy address:
+  0x55566fac5680: 02 f9 f9 f9 f9 f9 f9 f9 00 00 00 00 00 05 f9 f9
+  0x55566fac5700: f9 f9 f9 f9 00 02 f9 f9 f9 f9 f9 f9 00 00 00 00
+  0x55566fac5780: 00 01 f9 f9 f9 f9 f9 f9 03 f9 f9 f9 f9 f9 f9 f9
+  0x55566fac5800: 00 03 f9 f9 f9 f9 f9 f9 04 f9 f9 f9 f9 f9 f9 f9
+  0x55566fac5880: 00 00 f9 f9 f9 f9 f9 f9 04 f9 f9 f9 f9 f9 f9 f9
+=>0x55566fac5900: 00 00 f9 f9 f9 f9 f9 f9 00 00 04 f9 f9 f9 f9[f9]
+  0x55566fac5980: 06 f9 f9 f9 f9 f9 f9 f9 00 00 05 f9 f9 f9 f9 f9
+  0x55566fac5a00: 04 f9 f9 f9 f9 f9 f9 f9 00 01 f9 f9 f9 f9 f9 f9
+  0x55566fac5a80: 03 f9 f9 f9 f9 f9 f9 f9 00 00 00 07 f9 f9 f9 f9
+  0x55566fac5b00: 00 00 00 05 f9 f9 f9 f9 00 00 00 00 04 f9 f9 f9
+  0x55566fac5b80: f9 f9 f9 f9 00 f9 f9 f9 f9 f9 f9 f9 03 f9 f9 f9
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==805==ABORTING

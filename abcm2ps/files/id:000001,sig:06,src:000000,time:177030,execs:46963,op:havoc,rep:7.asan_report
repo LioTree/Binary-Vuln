@@ -1,0 +1,86 @@
+/app/output-3/default/crashes/id:000001,sig:06,src:000000,time:177030,execs:46963,op:havoc,rep:7:55:8: error: Bad character
+  55 	nlines 2 eq{
+             ^
+/app/output-3/default/crashes/id:000001,sig:06,src:000000,time:177030,execs:46963,op:havoc,rep:7:55:12: error: EOLN in grace note sequence
+  55 	nlines 2 eq{
+                 ^
+/app/output-3/default/crashes/id:000001,sig:06,src:000000,time:177030,execs:46963,op:havoc,rep:7:56:1: error: Bad character
+  56 	6' 8  7
+      ^
+/app/output-3/default/crashes/id:000001,sig:06,src:000000,time:177030,execs:46963,op:havoc,rep:7:56:2: error: Bad character
+  56 	6' 8  7
+       ^
+/app/output-3/default/crashes/id:000001,sig:06,src:000000,time:177030,execs:46963,op:havoc,rep:7:56:4: error: Bad character
+  56 	6' 8  7
+         ^
+/app/output-3/default/crashes/id:000001,sig:06,src:000000,time:177030,execs:46963,op:havoc,rep:7:56:7: error: Bad character
+  56 	6' 8  7
+            ^
+error: Unknown unit value "-52)"
+error: Wrong values in %%tablature
+/app/output-3/default/crashes/id:000001,sig:06,src:000000,time:177030,execs:46963,op:havoc,rep:7:52:81: warning: Not enough words for lyric line
+/app/output-3/default/crashes/id:000001,sig:06,src:000000,time:177030,execs:46963,op:havoc,rep:7:55:5: error: Bad character 'n'
+/app/output-3/default/crashes/id:000001,sig:06,src:000000,time:177030,execs:46963,op:havoc,rep:7:55:5: error: Bad character 'i'
+/app/output-3/default/crashes/id:000001,sig:06,src:000000,time:177030,execs:46963,op:havoc,rep:7:55:5: error: Bad character 'l'
+/app/output-3/default/crashes/id:000001,sig:06,src:000000,time:177030,execs:46963,op:havoc,rep:7:55:5: error: Bad character 'n'
+/app/output-3/default/crashes/id:000001,sig:06,src:000000,time:177030,execs:46963,op:havoc,rep:7:55:10: error: Bad character 's'
+=================================================================
+==803==ERROR: AddressSanitizer: global-buffer-overflow on address 0x5562f2e15690 at pc 0x5562f2d7e9e8 bp 0x7ffe99c57e20 sp 0x7ffe99c57e18
+READ of size 8 at 0x5562f2e15690 thread T0
+CitrusTriage#0 pc=0x5562f2d7e9e7 [in glyph_out] at /app/abcm2ps-8.14.17/glyph.c:192
+CitrusTriage#1 pc=0x5562f2db971f [in str_ft_out] at /app/abcm2ps-8.14.17/subs.c:872
+CitrusTriage#2 pc=0x5562f2dbaef3 [in str_out] at /app/abcm2ps-8.14.17/subs.c:967
+CitrusTriage#3 pc=0x5562f2dbb1bf [in put_str] at /app/abcm2ps-8.14.17/subs.c:985
+CitrusTriage#4 pc=0x5562f2d5c6f4 [in draw_lyric_line] at /app/abcm2ps-8.14.17/draw.c:3810
+CitrusTriage#5 pc=0x5562f2d5e036 [in draw_lyrics] at /app/abcm2ps-8.14.17/draw.c:3879
+CitrusTriage#6 pc=0x5562f2d5e036 [in draw_all_lyrics] at /app/abcm2ps-8.14.17/draw.c:4019
+CitrusTriage#7 pc=0x5562f2d6d08c [in draw_sym_near] at /app/abcm2ps-8.14.17/draw.c:4248
+CitrusTriage#8 pc=0x5562f2d98f05 [in delayed_output] at /app/abcm2ps-8.14.17/music.c:5035
+CitrusTriage#9 pc=0x5562f2d98f05 [in output_music] at /app/abcm2ps-8.14.17/music.c:5090
+CitrusTriage#10 pc=0x5562f2da5ade [in generate] at /app/abcm2ps-8.14.17/parse.c:1044
+CitrusTriage#11 pc=0x5562f2da5db3 [in gen_ly] at /app/abcm2ps-8.14.17/parse.c:1065
+CitrusTriage#12 pc=0x5562f2db3c96 [in do_tune] at /app/abcm2ps-8.14.17/parse.c:3652
+CitrusTriage#13 pc=0x5562f2d426b7 [in abc_parse] at /app/abcm2ps-8.14.17/abcparse.c:179
+CitrusTriage#14 pc=0x5562f2d7b386 [in txt_add_eos] at /app/abcm2ps-8.14.17/front.c:379
+CitrusTriage#15 pc=0x5562f2d7bc1d [in frontend] at /app/abcm2ps-8.14.17/front.c:891
+CitrusTriage#16 pc=0x5562f2d362c5 [in treat_file] at /app/abcm2ps-8.14.17/abcm2ps.c:240
+CitrusTriage#17 pc=0x5562f2d367b4 [in treat_abc_file] at /app/abcm2ps-8.14.17/abcm2ps.c:283
+CitrusTriage#18 pc=0x5562f2d38048 [in main] at /app/abcm2ps-8.14.17/abcm2ps.c:1041
+CitrusTriage#19 pc=0x7ffab1353ca7 [] at (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: fce446c9d4ad48e2b0c90cce1a11722897805281)
+CitrusTriage#20 pc=0x7ffab1353d64 [in __libc_start_main] at (/lib/x86_64-linux-gnu/libc.so.6+0x29d64) (BuildId: fce446c9d4ad48e2b0c90cce1a11722897805281)
+CitrusTriage#21 pc=0x5562f2d35620 [in _start] at (/app/abcm2ps-8.14.17/abcm2ps_asan+0x33620) (BuildId: e4ba731410148452ccd1118dae5469086af3428b)
+
+0x5562f2e15690 is located 16 bytes after global variable 'c2' defined in 'glyph.c:21:14' (0x5562f2e15480) of size 512
+SUMMARY: AddressSanitizer: global-buffer-overflow /app/abcm2ps-8.14.17/glyph.c:192 in glyph_out
+Shadow bytes around the buggy address:
+  0x5562f2e15400: 00 00 00 00 00 00 00 00 00 00 00 00 f9 f9 f9 f9
+  0x5562f2e15480: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x5562f2e15500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x5562f2e15580: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x5562f2e15600: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x5562f2e15680: f9 f9[f9]f9 00 00 00 00 00 00 00 00 00 00 00 00
+  0x5562f2e15700: 00 00 00 00 00 00 00 00 00 00 00 00 f9 f9 f9 f9
+  0x5562f2e15780: f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9
+  0x5562f2e15800: f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9
+  0x5562f2e15880: f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9
+  0x5562f2e15900: f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==803==ABORTING
