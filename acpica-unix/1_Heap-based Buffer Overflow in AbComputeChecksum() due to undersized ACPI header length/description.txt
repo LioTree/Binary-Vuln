@@ -1,0 +1,17 @@
+### Vulnerability 1
+Vulnerability Type: Heap-based Buffer Overflow
+Vendor:             ACPICA Project
+Affected product:   acpibin acpica-unix-20250404
+
+Attack type:        Local
+Impact:             Denial of Service
+Affected component: AbComputeChecksum() in source/tools/acpibin/abcompare.c
+Attack vector:      via a crafted AML input file with zero or undersized ACPI table Length in -s mode
+
+Description:        Heap-based Buffer Overflow in AbComputeChecksum() in ACPICA Project acpibin acpica-unix-20250404 allows local attackers to cause a Denial of Service via a crafted AML input file with zero or undersized ACPI table Length.
+Discoverer:         
+Reference:          source/tools/acpibin/abcompare.c:279-300
+Additional info:    Root cause: Header1.Length is trusted for allocation, then Table->Checksum is written without minimum length validation.
+
+Trace:
+  output-2_id:000000,sig:11,src:000069,time:27128,execs:151867,op:havoc,rep:2: [WRITE,heap-buffer-overflow]@

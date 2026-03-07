@@ -1,0 +1,51 @@
+Command: /app/src/acpica-unix-20250404/generate/unix/bin/acpibin -t -o 4278255616 -s /tmp/verify_output-2_jt1bjju_/in1.bin
+----------------------------------------
+=================================================================
+==3050047==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x502000000019 at pc 0x55674c4f4d73 bp 0x7ffcb575a2b0 sp 0x7ffcb575a2a8
+WRITE of size 1 at 0x502000000019 thread T0
+CitrusTriage#0 pc=0x55674c4f4d72 [] at (/app/src/acpica-unix-20250404/generate/unix/bin/acpibin+0x118d72) (BuildId: 4008584ee0534ba84519062ac9f7536101720de8)
+CitrusTriage#1 pc=0x55674c4f593a [] at (/app/src/acpica-unix-20250404/generate/unix/bin/acpibin+0x11993a) (BuildId: 4008584ee0534ba84519062ac9f7536101720de8)
+CitrusTriage#2 pc=0x7fee12b64ca7 [] at (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: fce446c9d4ad48e2b0c90cce1a11722897805281)
+CitrusTriage#3 pc=0x7fee12b64d64 [] at (/lib/x86_64-linux-gnu/libc.so.6+0x29d64) (BuildId: fce446c9d4ad48e2b0c90cce1a11722897805281)
+CitrusTriage#4 pc=0x55674c4133e0 [] at (/app/src/acpica-unix-20250404/generate/unix/bin/acpibin+0x373e0) (BuildId: 4008584ee0534ba84519062ac9f7536101720de8)
+
+0x502000000019 is located 8 bytes after 1-byte region [0x502000000010,0x502000000011)
+allocated by thread T0 here:
+CitrusTriage#0 pc=0x55674c4b3213 [] at (/app/src/acpica-unix-20250404/generate/unix/bin/acpibin+0xd7213) (BuildId: 4008584ee0534ba84519062ac9f7536101720de8)
+CitrusTriage#1 pc=0x55674c4f4b6a [] at (/app/src/acpica-unix-20250404/generate/unix/bin/acpibin+0x118b6a) (BuildId: 4008584ee0534ba84519062ac9f7536101720de8)
+CitrusTriage#2 pc=0x55674c4f593a [] at (/app/src/acpica-unix-20250404/generate/unix/bin/acpibin+0x11993a) (BuildId: 4008584ee0534ba84519062ac9f7536101720de8)
+CitrusTriage#3 pc=0x7fee12b64ca7 [] at (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: fce446c9d4ad48e2b0c90cce1a11722897805281)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow (/app/src/acpica-unix-20250404/generate/unix/bin/acpibin+0x118d72) (BuildId: 4008584ee0534ba84519062ac9f7536101720de8) 
+Shadow bytes around the buggy address:
+  0x501ffffffd80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501ffffffe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501ffffffe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501fffffff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501fffffff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x502000000000: fa fa 01[fa]fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==3050047==ABORTING
